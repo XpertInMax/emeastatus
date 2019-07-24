@@ -12,7 +12,13 @@
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<title>EMEA Onboarding Status Tracker</title>
-	
+	<style>
+		@media only screen and (min-width : 1200px) {
+		
+		    .container { max-width: 100%; } 
+		
+		}
+	</style>
 </head>
 
 <body>
@@ -21,8 +27,10 @@
 		<br>
 		<h3>EMEA Onboarding Status Tracker</h3>
 		<hr>
-		<nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
-		  <a class="navbar-brand" href="#">VirtuStream</a>
+		<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+		  <a class="navbar-brand" href="https://www.virtustream.com/">
+		  	<img width="100px" height="70px" th:src="@{/images/virtuestream.png}" style="position:relative;">
+		  </a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -71,112 +79,127 @@
 	
 		<form action="#" th:action="@{/customers/save}"
 						 th:object="${customer}" method="POST">
-		
-			<!-- Add hidden form field to handle update -->
-			<input type="hidden" th:field="*{id}" />
-			<div class="form-group">
-				<label for="customername">Customer Name</label>
-				<input type="text" th:field="*{customername}" class="form-control mb-4 col-4">
+			<div class="row">
+				<!-- Add hidden form field to handle update -->
+				<input type="hidden" th:field="*{id}" />
+				<div class="form-group col">
+					<label for="customername">Customer Name</label>
+					<input type="text" th:field="*{customername}" class="form-control">
+				</div>
+				<div class="form-group col">
+					<label for="gatestatus">Gate Status</label>
+					<input type="text" th:field="*{gatestatus}" class="form-control" id="gatestatus">
+				</div>
+				<div class="form-group col">
+					<label for="rid">RID</label>
+					<input type="text" th:field="*{rid}" class="form-control" id="rid">
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="gatestatus">Gate Status</label>
-				<input type="text" th:field="*{gatestatus}" class="form-control mb-4 col-4" id="gatestatus">
+			<div class="row">
+				<div class="form-group col">
+					<label for="dc1">DC1</label>
+					<input type="text" th:field="*{dc1}" class="form-control" id="dc1">
+				</div>
+				<div class="form-group col">
+					<label for="dc2">DC2</label>
+					<input type="text" th:field="*{dc2}" class="form-control" id="dc2">
+				</div>
+				<div class="form-group col">
+					<label for="startdate">Start Date</label>
+					<input type=date th:field="*{startdate}" class="form-control" id="startdate">
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="rid">RID</label>
-				<input type="text" th:field="*{rid}" class="form-control mb-4 col-4" id="rid">
+			<div class="row">	
+				<div class="form-group col">
+					<label for="completepercent">Complete Percent</label>
+					<!-- <input type="text" th:field="*{completepercent}" class="form-control mb-4 col-4" id="completepercent"> -->
+					<select class="form-control" th:field="*{completepercent}">
+					  <option th:value="0">0</option>
+					  <option th:value="10">10%</option>
+				      <option th:value="20">20%</option>
+				      <option th:value="30">30%</option>
+				      <option th:value="40">40%</option>
+				      <option th:value="50">50%</option>
+				      <option th:value="60">60%</option>
+				      <option th:value="70">70%</option>
+				      <option th:value="80">80%</option>
+				      <option th:value="90">90%</option>
+				      <option th:value="100">100%</option>	
+				    </select>
+				</div>
+				<div class="form-group col">
+					<label for="pm1">PM1</label>
+					<input type="text" th:field="*{pm1}" class="form-control" id="pm1">
+				</div>
+				<div class="form-group col">
+					<label for="pm2">PM2</label>
+					<input type="text" th:field="*{pm2}" class="form-control" id="pm2">
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="dc1">DC1</label>
-				<input type="text" th:field="*{dc1}" class="form-control mb-4 col-4" id="dc1">
+			<div class="row">	
+				<div class="form-group col">
+					<label for="owner">Owner</label>
+					<input type="text" th:field="*{owner}" class="form-control" id="owner">
+				</div>
+				<div class="form-group col">
+					<label for="coeengineer1">COE Engineer 1</label>
+					<input type="text" th:field="*{coeengineer1}" class="form-control" id="coeengineer1">
+				</div>
+				<div class="form-group col">
+					<label for="coeengineer2">COE Engineer 2</label>
+					<input type="text" th:field="*{coeengineer2}" class="form-control" id="coeengineer2">
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="dc2">DC2</label>
-				<input type="text" th:field="*{dc2}" class="form-control mb-4 col-4" id="dc2">
+			<div class="row">	
+				<div class="form-group col">
+					<label for="sapbasis">SAP Basis</label>
+					<input type="text" th:field="*{sapbasis}" class="form-control" id="sapbasis"> 
+				</div>
+				<div class="form-group col">
+					<label for="vmcount">VM's Count</label>
+					<input type="text" th:field="*{vmcount}" class="form-control" id="vmcount">
+				</div>
+				<div class="form-group col">
+					<label for="vmcompletecount">VM's Complete Count</label>
+					<input type="text" th:field="*{vmcompletecount}" class="form-control" id="vmcompletecountt">
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="startdate">Start Date</label>
-				<input type=date th:field="*{startdate}" class="form-control mb-4 col-4" id="startdate">
+			<div class="row">
+				<div class="form-group col">
+					<label for="status">Status</label>
+					<!-- <input type="text" th:field="*{status}" class="form-control mb-4 col-4" id="status"> -->
+					<select class="form-control" th:field="*{status}">
+					  <option th:value="Complete">Complete</option>
+					  <option th:value="Incomplete">In Complete</option>
+					  <option th:value="Stagnant">Stagnant</option>
+					</select> 
+				</div>
+				<div class="form-group col">
+					<label for="amstransition">AMS Transition ?</label>
+					<!-- <input type="text" th:field="*{amstransition}" class="form-control mb-4 col-4" id="amstransition"> -->
+					<select class="form-control" th:field="*{amstransition}">
+					  <option th:value="Yes">Yes</option>
+					  <option th:value="NO">No</option>
+					</select>  
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="completepercent">Complete Percent</label>
-				<!-- <input type="text" th:field="*{completepercent}" class="form-control mb-4 col-4" id="completepercent"> -->
-				<select class="form-control mb-4 col-4" th:field="*{completepercent}">
-				  <option th:value="0">0</option>
-				  <option th:value="10">10%</option>
-			      <option th:value="20">20%</option>
-			      <option th:value="30">30%</option>
-			      <option th:value="40">40%</option>
-			      <option th:value="50">50%</option>
-			      <option th:value="60">60%</option>
-			      <option th:value="70">70%</option>
-			      <option th:value="80">80%</option>
-			      <option th:value="90">90%</option>
-			      <option th:value="100">100%</option>	
-			    </select>
-			</div>
-			<div class="form-group">
-				<label for="pm1">PM1</label>
-				<input type="text" th:field="*{pm1}" class="form-control mb-4 col-4" id="pm1">
-			</div>
-			<div class="form-group">
-				<label for="pm2">PM2</label>
-				<input type="text" th:field="*{pm2}" class="form-control mb-4 col-4" id="pm2">
-			</div>
-			<div class="form-group">
-				<label for="owner">Owner</label>
-				<input type="text" th:field="*{owner}" class="form-control mb-4 col-4" id="owner">
-			</div>
-			<div class="form-group">
-				<label for="coeengineer1">COE Engineer 1</label>
-				<input type="text" th:field="*{coeengineer1}" class="form-control mb-4 col-4" id="coeengineer1">
-			</div>
-			<div class="form-group">
-				<label for="coeengineer2">COE Engineer 2</label>
-				<input type="text" th:field="*{coeengineer2}" class="form-control mb-4 col-4" id="coeengineer2">
-			</div>
-			<div class="form-group">
-				<label for="sapbasis">SAP Basis</label>
-				<input type="text" th:field="*{sapbasis}" class="form-control mb-4 col-4" id="sapbasis"> 
-			</div>
-			<div class="form-group">
-				<label for="vmcount">VM's Count</label>
-				<input type="text" th:field="*{vmcount}" class="form-control mb-4 col-4" id="vmcount">
-			</div>
-			<div class="form-group">
-				<label for="vmcompletecount">VM's Complete Count</label>
-				<input type="text" th:field="*{vmcompletecount}" class="form-control mb-4 col-4" id="vmcompletecountt">
-			</div>
-			<div class="form-group">
-				<label for="status">Status</label>
-				<!-- <input type="text" th:field="*{status}" class="form-control mb-4 col-4" id="status"> -->
-				<select class="form-control mb-4 col-4" th:field="*{status}">
-				  <option th:value="Complete">Complete</option>
-				  <option th:value="Incomplete">In Complete</option>
-				  <option th:value="Stagnant">Stagnant</option>
-				</select> 
-			</div>
-			<div class="form-group">
-				<label for="amstransition">AMS Transition ?</label>
-				<!-- <input type="text" th:field="*{amstransition}" class="form-control mb-4 col-4" id="amstransition"> -->
-				<select class="form-control mb-4 col-4" th:field="*{amstransition}">
-				  <option th:value="Yes">Yes</option>
-				  <option th:value="NO">No</option>
-				</select>  
-			</div>
-			<div class="form-group">
-				<label for="outstanding">Outstanding</label>
-				<!-- <input type="text"  class="form-control mb-4 col-4" id="outstanding"> -->
-				<textarea class="form-control mb-8 col-8" th:field="*{outstanding}"  rows="3"></textarea>
-			</div>
-			<div class="form-group">
-				<label for="issues">Issues</label>
-				<!-- <input type="text" th:field="*{issues}" class="form-control mb-8 col-8" id="issues"> -->
-				<textarea class="form-control mb-8 col-8" th:field="*{issues}"  rows="3"></textarea> 
-			</div>
-				
-			<button type="submit" class="btn btn-info col-2">Save</button>
-						
+			<div class="row">	
+				<div class="form-group col">
+					<label for="outstanding">Outstanding</label>
+					<!-- <input type="text"  class="form-control mb-4 col-4" id="outstanding"> -->
+					<textarea class="form-control" th:field="*{outstanding}"  rows="3"></textarea>
+				</div>
+				<div class="form-group col">
+					<label for="issues">Issues</label>
+					<!-- <input type="text" th:field="*{issues}" class="form-control mb-8 col-8" id="issues"> -->
+					<textarea class="form-control" th:field="*{issues}"  rows="3"></textarea> 
+				</div>
+			</div>	
+			<div class="row">
+				<div class="form-group col" style="text-align: center">
+					<button type="submit" class="btn btn-info col-2">Save</button>
+				</div>	
+			</div>			
 		</form>
 	</div>
 	<script>

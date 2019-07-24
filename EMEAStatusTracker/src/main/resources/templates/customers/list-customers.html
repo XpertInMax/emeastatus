@@ -13,6 +13,13 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	
 	<title>EMEA Onboarding Status Tracker</title>
+	<style>
+		@media only screen and (min-width : 1200px) {
+		
+		    .container { max-width: 100%; } 
+		
+		}
+	</style>
 	
 </head>
 
@@ -22,8 +29,10 @@
 	<br>
 	<h3>EMEA Onboarding Status Tracker</h3>
 	<hr>
-	<nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
-	  <a class="navbar-brand" href="#">VirtuStream</a>
+	<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+	  <a class="navbar-brand" href="https://www.virtustream.com/">
+	  	<img width="100px" height="70px" th:src="@{/images/virtuestream.png}" style="position:relative;">
+	  </a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -148,7 +157,7 @@
 	
 </div>
 
-	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script>
   $(document).ready(function() {

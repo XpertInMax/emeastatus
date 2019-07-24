@@ -10,6 +10,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer>{
 	//https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html
 	
 	public List<Customer> findByStatus(String status);
+	
 	public List<Customer> findByStatusNot(String status);
 
 }
