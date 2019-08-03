@@ -26,8 +26,8 @@ CREATE TABLE `virtuestream`.`customer` (
   `outstanding` VARCHAR(1500) NULL,
   `issues` VARCHAR(1000) NULL,
   `sapbasis` VARCHAR(45) NULL,
+  `deploymethod` VARCHAR(45) NULL
   PRIMARY KEY (`id`));
-
 
 INSERT INTO `virtuestream`.`customer` (`customername`, `gatestatus`, `rid`, `dc1`,`dc2`, `startdate`, `completepercent`, `pm1`, `pm2`, `owner`, `coeengineer1`, `coeengineer2`, `vmcount`, `vmcompletecount`, `status`, `amstransition`, `outstanding`, `issues`, `sapbasis`) VALUES ('Almaviva ARCA GOMMA',6,'TN2J','NLDC','FRDC',SYSDATE(),'0.4','Max','','Karthik','Raghavendra','',11,6,'Incomplete','NO','Phase -2 Handed over to PM. ','','N/A');
 INSERT INTO `virtuestream`.`customer` (`customername`, `gatestatus`, `rid`, `dc1`,`dc2`, `startdate`, `completepercent`, `pm1`, `pm2`, `owner`, `coeengineer1`, `coeengineer2`, `vmcount`, `vmcompletecount`, `status`, `amstransition`, `outstanding`, `issues`, `sapbasis`) VALUES ('Iron Mountain',6,'A0LM','AUDC1','AUDC2',SYSDATE(),'0.7','Alberto','','Kiran','Subhash','Raghavendra',350,187,'Incomplete','NO','Next schedule on 23rd August (8 VM s) , Project moved till Sep 20th.','','N/A');
