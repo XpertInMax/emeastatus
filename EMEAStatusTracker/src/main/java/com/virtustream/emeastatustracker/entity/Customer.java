@@ -76,6 +76,9 @@ public class Customer {
 	
 	@Column(name="sapbasis")
 	private String sapbasis;
+	
+	@Column(name="deploymethod")
+	private String deploymethod;
 
 	public Customer() {
 		// TODO Auto-generated constructor stub
@@ -86,7 +89,7 @@ public class Customer {
 	public Customer(String customername, int gatestatus, String rid, String dc1, String dc2, Date startdate,
 			String completepercent, String pm1, String pm2, String owner, String coeengineer1, String coeengineer2,
 			int vmcount, int vmcompletecount, String status, String amstransition, String outstanding, String issues,
-			String sapbasis) {
+			String sapbasis, String deploymethod) {
 		this.customername = customername;
 		this.gatestatus = gatestatus;
 		this.rid = rid;
@@ -106,6 +109,7 @@ public class Customer {
 		this.outstanding = outstanding;
 		this.issues = issues;
 		this.sapbasis = sapbasis;
+		this.deploymethod = deploymethod;
 	}
 
 
@@ -282,6 +286,18 @@ public class Customer {
 
 
 
+	public String getDeploymethod() {
+		return deploymethod;
+	}
+
+
+
+	public void setDeploymethod(String deploymethod) {
+		this.deploymethod = deploymethod;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", customername=" + customername + ", gatestatus=" + gatestatus + ", rid=" + rid
@@ -289,7 +305,7 @@ public class Customer {
 				+ ", pm1=" + pm1 + ", pm2=" + pm2 + ", owner=" + owner + ", coeengineer1=" + coeengineer1
 				+ ", coeengineer2=" + coeengineer2 + ", vmcount=" + vmcount + ", vmcompletecount=" + vmcompletecount
 				+ ", status=" + status + ", amstransition=" + amstransition + ", outstanding=" + outstanding
-				+ ", issues=" + issues + ", sapbasis=" + sapbasis + "]";
+				+ ", issues=" + issues + ", sapbasis=" + sapbasis + ", deploymethod=" + deploymethod + "]";
 	} 
 	
 	

@@ -38,19 +38,19 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" th:href="@{/customers/list}">In Flight <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" th:href="@{/list}">In Flight <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Satistics</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" th:href="@{/customers/listComplete}">Complete</a>
+		        <a class="nav-link" th:href="@{/listComplete}">Complete</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Problem Tracker</a>
 		      </li>
 		      <li class="nav-item">
-				<a class="nav-link" th:href="@{/customers/showFormForAdd}">
+				<a class="nav-link" th:href="@{/showFormForAdd}">
 					Add Customer
 				</a>
 			 </li>
@@ -77,7 +77,7 @@
 		</nav>
 		<hr>
 	
-		<form action="#" th:action="@{/customers/save}"
+		<form action="#" th:action="@{/save}"
 						 th:object="${customer}" method="POST">
 			<div class="row">
 				<!-- Add hidden form field to handle update -->
@@ -165,6 +165,15 @@
 				</div>
 			</div>
 			<div class="row">
+				 <div class="form-group col">
+					<label for="deploymethod">Deploy Method</label>
+					<!-- <input type="text" th:field="*{deploymethod}" class="form-control" id="deploymethod"> -->
+					<select class="form-control" th:field="*{deploymethod}">
+					  <option th:value="Factory+' '+2.0">Factory&nbsp;2.0</option>
+					  <option th:value="Factory+' '+3.0">Factory&nbsp;3.0</option>
+					  <option th:value="Nebraska">Nebraska</option>
+					</select> 
+				</div> 
 				<div class="form-group col">
 					<label for="status">Status</label>
 					<!-- <input type="text" th:field="*{status}" class="form-control mb-4 col-4" id="status"> -->

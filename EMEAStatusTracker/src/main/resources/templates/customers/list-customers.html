@@ -40,19 +40,19 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" th:href="@{/customers/list}">In Flight <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" th:href="@{/list}">In Flight <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Satistics</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" th:href="@{/customers/listComplete}">Complete</a>
+	        <a class="nav-link" th:href="@{/listComplete}">Complete</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Problem Tracker</a>
 	      </li>
 	      <li class="nav-item">
-			<a class="nav-link" th:href="@{/customers/showFormForAdd}">
+			<a class="nav-link" th:href="@{/showFormForAdd}">
 				Add Customer
 			</a>
 		 </li>
@@ -96,6 +96,7 @@
 				<th>COE Engineer 1</th>
 				<th>COE Engineer 2</th>
 				<th>SAP Basis</th>
+				<th>Deploy Method</th>
 				<th>VM's</th>
 				<th>VM's Complete</th>
 				<th>Status</th>
@@ -111,13 +112,13 @@
 				
 				<td>
 					<!-- Add "update" button/link -->
-					<a th:href="@{/customers/showFormForUpdate(customerId=${tempCustomer.id})}"
+					<a th:href="@{/showFormForUpdate(customerId=${tempCustomer.id})}"
 					   class="btn btn-info btn-sm">
 						Update
 					</a>
 					
 					<!-- Add "delete" button/link 				
-					<a th:href="@{/customers/delete(customerId=${tempCustomer.id})}"
+					<a th:href="@{/delete(customerId=${tempCustomer.id})}"
 					   class="btn btn-danger btn-sm"
 					   onclick="if (!(confirm('Are you sure you want to delete this Customer?'))) return false">
 						Delete
@@ -141,6 +142,7 @@
 				<td th:text="${tempCustomer.coeengineer1}" />
 				<td th:text="${tempCustomer.coeengineer2}" />
 				<td th:text="${tempCustomer.sapbasis}" />
+				<td th:text="${tempCustomer.deploymethod}" />
 				<td th:text="${tempCustomer.vmcount}" />
 				<td th:text="${tempCustomer.vmcompletecount}" />
 				<td th:text="${tempCustomer.status}" />

@@ -14,7 +14,6 @@ import com.virtustream.emeastatustracker.entity.Customer;
 import com.virtustream.emeastatustracker.service.CustomerService;
 
 @Controller
-@RequestMapping("/customers")
 public class CustomerController {
 
 	private CustomerService customerService;
@@ -24,6 +23,18 @@ public class CustomerController {
 	}
 
 	// add mapping for "/list"
+	
+	@GetMapping("/")
+	public String list(Model theModel) {
+
+		// get customers from db
+		List<Customer> theCustomers = customerService.findByStatusNot("Complete");
+
+		// add to the spring model
+		theModel.addAttribute("customers", theCustomers);
+
+		return "customers/list-customers";
+	}
 
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
@@ -68,7 +79,7 @@ public class CustomerController {
 		customerService.save(theCustomer);
 
 		// use a redirect to prevent duplicate submissions
-		return "redirect:/customers/list";
+		return "redirect:/list";
 	}
 
 	@GetMapping("/delete")
@@ -78,7 +89,7 @@ public class CustomerController {
 		customerService.deleteById(theId);
 
 		// redirect to /customers/list
-		return "redirect:/customers/list";
+		return "redirect:/list";
 
 	}
 	
